@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sports Tournament Management</title>
+<style>
+  :root { --bg:#f4f6fb; --card:#fff; --ink:#1c2333; --accent:#1f6feb; --muted:#6b7280; --line:#e5e7eb; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, Arial, sans-serif; color:var(--ink);
+    background:#14264f url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAwIDkwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJza3kiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMTQyNjRmIi8+PHN0b3Agb2Zmc2V0PSIuNTUiIHN0b3AtY29sb3I9IiNiNDU0M2EiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNmEyM2MiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYXNzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzJmN2QzYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzE0NTIyYSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0ic3VuIiBjeD0iLjUiIGN5PSIuNSIgcj0iLjUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmU5YTgiIHN0b3Atb3BhY2l0eT0iLjk1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkMjdhIiBzdG9wLW9wYWNpdHk9IjAiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgICA8ZyBpZD0iZmllbGRlciIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGIxMjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTYyIiByPSI4IiBmaWxsPSIjMGIxMjIwIiBzdHJva2U9Im5vbmUiLz4KICAgICAgPHBhdGggZD0iTTAtNTJWLTIyIiBzdHJva2Utd2lkdGg9IjEzIi8+CiAgICAgIDxwYXRoIGQ9Ik0wLTIyTC05IDBNMC0yMkw5IDAiIHN0cm9rZS13aWR0aD0iOCIvPgogICAgICA8cGF0aCBkPSJNMC00OEwtMTQtMzBNMC00OEwxNC0zMCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgICA8L2c+CiAgICA8ZyBpZD0iY2F0Y2hlciIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGIxMjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICA8Y2lyY2xlIGN4PSIwIiBjeT0iLTYyIiByPSI4IiBmaWxsPSIjMGIxMjIwIiBzdHJva2U9Im5vbmUiLz4KICAgICAgPHBhdGggZD0iTTAtNTJWLTIyIiBzdHJva2Utd2lkdGg9IjEzIi8+CiAgICAgIDxwYXRoIGQ9Ik0wLTIyTC0xMiAwTTAtMjJMMTIgLTIiIHN0cm9rZS13aWR0aD0iOCIvPgogICAgICA8cGF0aCBkPSJNMC00OEwtMTAtNzhNMC00OEwxMC03OCIgc3Ryb2tlLXdpZHRoPSI2Ii8+CiAgICA8L2c+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjU2MCIgZmlsbD0idXJsKCNza3kpIi8+CiAgPGNpcmNsZSBjeD0iODAwIiBjeT0iNTQ1IiByPSIyNjAiIGZpbGw9InVybCgjc3VuKSIvPgogIDwhLS0gc3RhbmRzIGFuZCBmbG9vZGxpZ2h0cyAtLT4KICA8cGF0aCBkPSJNMCA1NjBWNTA1TDkwIDQ5NUwyMTAgNTA1TDMzMCA0OTBMNDcwIDUwMkw2MDAgNDg4TDc2MCA1MDBMOTAwIDQ4NkwxMDQwIDUwMEwxMTgwIDQ4OEwxMzIwIDUwMkwxNDUwIDQ5MEwxNjAwIDUwNFY1NjBaIiBmaWxsPSIjMTAxODI3Ii8+CiAgPGcgc3Ryb2tlPSIjMTAxODI3IiBzdHJva2Utd2lkdGg9IjYiPjxwYXRoIGQ9Ik0xODAgNTA1VjMzME0xNDIwIDUwMFYzMjAiLz48L2c+CiAgPGcgZmlsbD0iI2ZmZjZjOCI+PHJlY3QgeD0iMTUwIiB5PSIzMDUiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyNiIgcng9IjMiLz48cmVjdCB4PSIxMzkwIiB5PSIyOTUiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyNiIgcng9IjMiLz48L2c+CiAgPHJlY3QgeT0iNTYwIiB3aWR0aD0iMTYwMCIgaGVpZ2h0PSIzNDAiIGZpbGw9InVybCgjZ3Jhc3MpIi8+CiAgPGcgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjA1Ij48cmVjdCB5PSI2MDAiIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjQwIi8+PHJlY3QgeT0iNjkwIiB3aWR0aD0iMTYwMCIgaGVpZ2h0PSI1NSIvPjxyZWN0IHk9IjgwMCIgd2lkdGg9IjE2MDAiIGhlaWdodD0iNzAiLz48L2c+CiAgPCEtLSBwaXRjaCAtLT4KICA8cGF0aCBkPSJNNzM1IDU4NUg4NjVMMTA2MCA5MDBINTQwWiIgZmlsbD0iI2Q4YmQ4YSIgb3BhY2l0eT0iLjg1Ii8+CiAgPHBhdGggZD0iTTUyMCA3NjBIMTA4MCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjQiIG9wYWNpdHk9Ii43Ii8+CiAgPCEtLSBmaWVsZGVycyAtLT4KICA8dXNlIGhyZWY9IiNmaWVsZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNDAgNjQwKSBzY2FsZSguOSkiLz4KICA8dXNlIGhyZWY9IiNmaWVsZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzYwIDYyNSkgc2NhbGUoLjgpIi8+CiAgPHVzZSBocmVmPSIjY2F0Y2hlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDIwIDYwMCkgc2NhbGUoLjY1KSIvPgogIDx1c2UgaHJlZj0iI2ZpZWxkZXIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExODAgNjAwKSBzY2FsZSguNikiLz4KICA8IS0tIHN0dW1wcyBhbmQgd2lja2V0a2VlcGVyIC0tPgogIDxnIHN0cm9rZT0iI2Y0ZTljZiIgc3Ryb2tlLXdpZHRoPSI0Ij48cGF0aCBkPSJNMTA0MiA3MzVWNzc1TTEwNTIgNzM1Vjc3NU0xMDYyIDczNVY3NzUiLz48L2c+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMGIxMjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPGNpcmNsZSBjeD0iMTExOCIgY3k9IjcyMiIgcj0iMTAiIGZpbGw9IiMwYjEyMjAiIHN0cm9rZT0ibm9uZSIvPgogICAgPHBhdGggZD0iTTExMTggNzM0TDExMjQgNzU4IiBzdHJva2Utd2lkdGg9IjE1Ii8+PHBhdGggZD0iTTExMjQgNzU4TDExMDQgNzc2TTExMjQgNzU4TDExNDAgNzc2IiBzdHJva2Utd2lkdGg9IjkiLz4KICAgIDxwYXRoIGQ9Ik0xMTE4IDc0MEwxMDkyIDc1MiIgc3Ryb2tlLXdpZHRoPSI3Ii8+CiAgPC9nPgogIDwhLS0gYmF0c21hbiAtLT4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMwYjEyMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNOTgzIDY0NmExNyAxNyAwIDAgMSAzNCAweiIgZmlsbD0iIzBiMTIyMCIgc3Ryb2tlPSJub25lIi8+CiAgICA8Y2lyY2xlIGN4PSIxMDAwIiBjeT0iNjUyIiByPSIxMyIgZmlsbD0iIzBiMTIyMCIgc3Ryb2tlPSJub25lIi8+CiAgICA8cGF0aCBkPSJNMTAwMCA2NjZMOTkwIDcyOCIgc3Ryb2tlLXdpZHRoPSIyNCIvPgogICAgPHBhdGggZD0iTTk5MCA3MjhMOTcyIDc4NE05OTAgNzI4TDEwMTYgNzg0IiBzdHJva2Utd2lkdGg9IjE1Ii8+CiAgICA8cGF0aCBkPSJNMTAwMCA2NzhMMTAyNiA3MTIiIHN0cm9rZS13aWR0aD0iMTAiLz4KICAgIDxwYXRoIGQ9Ik0xMDI2IDcxMkwxMDUyIDc5MCIgc3Ryb2tlLXdpZHRoPSIxMyIgc3Ryb2tlPSIjM2EyYTFhIi8+CiAgPC9nPgogIDwhLS0gYm93bGVyIC0tPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBiMTIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KICAgIDxjaXJjbGUgY3g9IjU3MCIgY3k9IjYxMiIgcj0iMTMiIGZpbGw9IiMwYjEyMjAiIHN0cm9rZT0ibm9uZSIvPgogICAgPHBhdGggZD0iTTU3MCA2MjZMNTYwIDY5MiIgc3Ryb2tlLXdpZHRoPSIyMSIvPgogICAgPHBhdGggZD0iTTU3MCA2MzRMNTk4IDU2NiIgc3Ryb2tlLXdpZHRoPSIxMiIvPjxwYXRoIGQ9Ik01NjYgNjM2TDUzNCA2NzIiIHN0cm9rZS13aWR0aD0iMTEiLz4KICAgIDxwYXRoIGQ9Ik01NjAgNjkyTDU5OCA3MzRMNjA2IDc3OE01NjAgNjkyTDUyNiA3MzJMNTA2IDc3MCIgc3Ryb2tlLXdpZHRoPSIxNCIvPgogIDwvZz4KICA8Y2lyY2xlIGN4PSI2MDEiIGN5PSI1NTYiIHI9IjciIGZpbGw9IiNjODEwMmUiLz4KPC9zdmc+Cg==") center/cover fixed no-repeat; min-height:100vh; }
+  header { background:rgba(11,18,32,.82); color:#fff; backdrop-filter:blur(3px); padding:16px 24px; }
+  header h1 { margin:0; font-size:20px; }
+  nav { display:flex; gap:6px; padding:12px 24px 0; flex-wrap:wrap; }
+  nav button { border:0; background:rgba(255,255,255,.72); padding:9px 16px; border-radius:8px 8px 0 0; cursor:pointer; font-size:14px; }
+  nav button.active { background:var(--card); font-weight:600; color:var(--accent); }
+  main { padding:0 24px 40px; }
+  section { display:none; background:rgba(255,255,255,.95); padding:20px; border-radius:0 8px 8px 8px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+  section.active { display:block; }
+  table { width:100%; border-collapse:collapse; margin:12px 0; font-size:14px; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); }
+  th { background:#f9fafb; }
+  form { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; align-items:center; }
+  input, select { padding:8px; border:1px solid #cbd2e0; border-radius:6px; font-size:14px; }
+  .btn { background:var(--accent); color:#fff; border:0; padding:9px 16px; border-radius:6px; cursor:pointer; font-size:14px; }
+  .btn.sec { background:#475569; }
+  .badge { padding:2px 8px; border-radius:10px; font-size:12px; }
+  .COMPLETED { background:#d1fae5; color:#065f46; } .SCHEDULED { background:#fef3c7; color:#92400e; }
+  #msg { position:fixed; right:20px; bottom:20px; padding:12px 18px; border-radius:8px; color:#fff; display:none; }
+  #msg.ok { background:#059669; } #msg.err { background:#dc2626; }
+  h3 { margin:18px 0 4px; } .muted { color:var(--muted); font-size:13px; }
+</style>
+</head>
+<body>
+<header><h1>🏆 Sports Tournament Management</h1></header>
+<nav id="tabs">
+  <button data-t="matches" class="active">Matches</button>
+  <button data-t="teams">Teams</button>
+  <button data-t="players">Players</button>
+  <button data-t="scores">Add Score</button>
+  <button data-t="reports">Reports</button>
+</nav>
+<main>
+<section id="matches" class="active">
+  <h3>Match details (JOIN of MATCHES, TEAMS, SCORES)</h3>
+  <table><thead><tr><th>#</th><th>Date</th><th>Team 1</th><th>Score</th><th>Team 2</th><th>Venue</th><th>Status</th></tr></thead><tbody id="matchRows"></tbody></table>
+  <h3>Schedule a match</h3>
+  <form id="matchForm">
+    <select id="m_t1" required></select> vs <select id="m_t2" required></select>
+    <input type="date" id="m_date" required><input id="m_venue" placeholder="Venue">
+    <button class="btn">Add Match</button>
+  </form>
+</section>
+<section id="teams">
+  <h3>Standings</h3>
+  <table><thead><tr><th>ID</th><th>Team</th><th>City</th><th>Coach</th><th>Points</th><th>Check (function)</th></tr></thead><tbody id="teamRows"></tbody></table>
+  <form id="teamForm">
+    <input id="t_name" placeholder="Team name" required><input id="t_city" placeholder="City"><input id="t_coach" placeholder="Coach">
+    <button class="btn">Add Team</button>
+  </form>
+</section>
+<section id="players">
+  <table><thead><tr><th>ID</th><th>Player</th><th>Team</th><th>Position</th><th>Jersey</th></tr></thead><tbody id="playerRows"></tbody></table>
+  <form id="playerForm">
+    <input id="p_name" placeholder="Player name" required><select id="p_team" required></select>
+    <input id="p_pos" placeholder="Position"><input id="p_jersey" type="number" min="0" placeholder="Jersey #" style="width:100px">
+    <button class="btn">Add Player</button>
+  </form>
+</section>
+<section id="scores">
+  <h3>Add match score (calls stored procedure add_match_score)</h3>
+  <p class="muted">Add a score for each team. When both are recorded, the trigger completes the match and updates team points.</p>
+  <form id="scoreForm">
+    <select id="s_match" required></select><select id="s_team" required></select>
+    <input id="s_score" type="number" min="0" placeholder="Score" required style="width:100px">
+    <button class="btn">Submit Score</button>
+  </form>
+</section>
+<section id="reports">
+  <h3>Teams with total score above average (subquery)</h3>
+  <table><thead><tr><th>Team</th><th>Total score</th></tr></thead><tbody id="aboveRows"></tbody></table>
+  <button class="btn sec" onclick="loadAbove()">Refresh</button>
+</section>
+</main>
+<div id="msg"></div>
+<script>
+const $ = id => document.getElementById(id);
+let teams = [], matches = [];
+function toast(t, ok = true) { const m = $('msg'); m.textContent = t; m.className = ok ? 'ok' : 'err'; m.style.display = 'block'; setTimeout(() => m.style.display = 'none', 3000); }
+async function api(url, method = 'GET', body) {
+  const r = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.error || 'Request failed');
+  return d;
+}
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const opts = (arr, v, l) => arr.map(x => `<option value="${x[v]}">${esc(typeof l === 'function' ? l(x) : x[l])}</option>`).join('');
+
+document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('#tabs button, section').forEach(e => e.classList.remove('active'));
+  b.classList.add('active'); $(b.dataset.t).classList.add('active');
+});
+
+async function loadTeams() {
+  teams = await api('/api/teams');
+  $('teamRows').innerHTML = teams.map(t => `<tr><td>${t.team_id}</td><td>${esc(t.team_name)}</td><td>${esc(t.city)}</td><td>${esc(t.coach)}</td><td><b>${t.points}</b></td><td><button class="btn sec" onclick="checkPts(${t.team_id})">Calculate</button></td></tr>`).join('');
+  const o = opts(teams, 'team_id', 'team_name');
+  $('m_t1').innerHTML = o; $('m_t2').innerHTML = o; $('p_team').innerHTML = o;
+}
+async function checkPts(id) { const r = await api(`/api/teams/${id}/points`); toast(`Total points (function): ${r.total_points}`); }
+async function loadMatches() {
+  matches = await api('/api/matches');
+  $('matchRows').innerHTML = matches.map(m => `<tr><td>${m.match_id}</td><td>${m.match_date}</td><td>${esc(m.team1)} <span class="muted">(${esc(m.team1_city)})</span></td><td>${m.team1_score ?? '-'} : ${m.team2_score ?? '-'}</td><td>${esc(m.team2)} <span class="muted">(${esc(m.team2_city)})</span></td><td>${esc(m.venue)}</td><td><span class="badge ${m.status}">${m.status}</span></td></tr>`).join('');
+  $('s_match').innerHTML = opts(matches, 'match_id', m => `#${m.match_id}: ${m.team1} vs ${m.team2} (${m.status})`);
+  updateScoreTeams();
+}
+function updateScoreTeams() {
+  const m = matches.find(x => x.match_id == $('s_match').value);
+  $('s_team').innerHTML = m ? `<option value="${m.team1_id}">${esc(m.team1)}</option><option value="${m.team2_id}">${esc(m.team2)}</option>` : '';
+}
+$('s_match').onchange = updateScoreTeams;
+async function loadPlayers() {
+  const p = await api('/api/players');
+  $('playerRows').innerHTML = p.map(x => `<tr><td>${x.player_id}</td><td>${esc(x.player_name)}</td><td>${esc(x.team_name)}</td><td>${esc(x.position)}</td><td>${x.jersey_number ?? ''}</td></tr>`).join('');
+}
+async function loadAbove() {
+  const r = await api('/api/teams/above-average');
+  $('aboveRows').innerHTML = r.length ? r.map(t => `<tr><td>${esc(t.team_name)}</td><td>${t.total_score}</td></tr>`).join('') : '<tr><td colspan="2">No data</td></tr>';
+}
+const refresh = () => Promise.all([loadTeams(), loadMatches(), loadPlayers(), loadAbove()]);
+const guard = fn => async e => { e.preventDefault(); try { await fn(); } catch (err) { toast(err.message, false); } };
+
+$('teamForm').onsubmit = guard(async () => { await api('/api/teams', 'POST', { team_name: $('t_name').value, city: $('t_city').value, coach: $('t_coach').value }); $('teamForm').reset(); toast('Team added'); await refresh(); });
+$('playerForm').onsubmit = guard(async () => { await api('/api/players', 'POST', { player_name: $('p_name').value, team_id: $('p_team').value, position: $('p_pos').value, jersey_number: $('p_jersey').value || null }); $('playerForm').reset(); toast('Player added'); await refresh(); });
+$('matchForm').onsubmit = guard(async () => { await api('/api/matches', 'POST', { team1_id: $('m_t1').value, team2_id: $('m_t2').value, match_date: $('m_date').value, venue: $('m_venue').value }); toast('Match scheduled'); await refresh(); });
+$('scoreForm').onsubmit = guard(async () => { await api('/api/scores', 'POST', { match_id: $('s_match').value, team_id: $('s_team').value, score: $('s_score').value }); $('s_score').value = ''; toast('Score added'); await refresh(); });
+
+refresh().catch(e => toast('Cannot reach server/database: ' + e.message, false));
+</script>
+</body>
+</html>
